@@ -2,9 +2,9 @@
   <div class="comment">
     <h3>发表评论</h3>
     <hr>
-    <textarea placeholder="请输入要BB的内容（做多吐槽120字）" maxlength="120"></textarea>
+    <textarea placeholder="请输入要BB的内容（做多吐槽120字）" maxlength="120" v-model="msg"></textarea>
 
-    <mt-button type="primary" size="large">发表评论</mt-button>
+    <mt-button type="primary" size="large" @click="postComments">发表评论</mt-button>
 
     <div class="cmt-list">
       <div class="cmt-item" v-for="(item,index) in comments" :key="index">
@@ -28,7 +28,8 @@ import { Toast } from "mint-ui";
 export default {
   data: () => ({
     pageindex: 1,
-    comments: []
+    comments: [],
+    msg: ""
   }),
   // 使用props 获取传递过来的id
   props: ["id"],
@@ -36,8 +37,10 @@ export default {
     this.getComments();
   },
   methods: {
+    /**
+     * 获取数据 
+     */
     getComments() {
-      // console.log(this.id)
       // 通过id 发送ajax 获取数据
       this.$http
         .get("api/getcomments/" + this.id + "?pageindex=" + this.pageindex + "")
@@ -45,16 +48,46 @@ export default {
           // console.log(result)
           if (result.body.status === 0) {
             // this.comments = result.body.message;
-            // ? 数组是如何拼接
+            // ? 数组是如何拼接 使用concat
             this.comments = this.comments.concat(result.body.message);
           } else {
             Toast("获取评论信息失败");
           }
         });
     },
+    /**
+     * 获取更多
+     */
     more() {
       this.pageindex++;
       this.getComments();
+    },
+    /**
+     * 提交发表信息  
+     */
+    postComments() {
+      // 判断如果没有输入内容友好提示
+      if (this.msg.trim().length === 0) {
+        Toast("请输入bb的内容");
+      }
+
+      this.$http
+        .post("api/postcomment/" + this.id, {
+          content: this.msg.trim()
+        })
+        .then(function(result) {
+          if (result.body.status === 0) {
+            // 1. 拼接出一个评论对象
+            var cmt = {
+              user_name: "匿名用户",
+              content: this.msg.trim()
+            };
+            // 添加到数组的开头   
+            this.comments.unshift(cmt);
+            // 清空  
+            this.msg = "";
+          }
+        });
     }
   }
 };

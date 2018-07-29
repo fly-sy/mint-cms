@@ -63,7 +63,7 @@ export default {
       {
         url: "../../static/gird/menu2.png",
         title: "图片分享",
-        to: "/home/newlist"
+        to: "/home/photolist"
       },
       {
         url: "../../static/gird/menu3.png",

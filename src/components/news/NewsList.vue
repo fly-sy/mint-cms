@@ -1,6 +1,6 @@
 <template>
   <div class="newslist">
-    <ul class="mui-table-view">
+    <!-- <ul class="mui-table-view">
       <li class="mui-table-view-cell mui-media" v-for="item in newslist" :key="item.id">
         <router-link :to="'/home/newsinfo/'+item.id">
           <img class="mui-media-object mui-pull-left" :src="item.img_url">
@@ -13,14 +13,15 @@
           </div>
         </router-link>
       </li>
-    </ul>
+    </ul> -->
 
-    <!-- <mui-media></mui-media> -->
+    <!-- 渲染自己封装好组件 -->
+    <mui-media :newslist="newslist"></mui-media>
   </div>
 </template>
 
 <script>
-// import MuiMedia from '../../muicomponents/MuiMedia'
+import MuiMedia from '../../muicomponents/MuiMedia'
 import { Toast } from "mint-ui";
 export default {
   data: () => ({
@@ -42,7 +43,7 @@ export default {
     }
   },
   components: {
-    // 'mui-media':  MuiMedia
+    'mui-media':  MuiMedia
   }
 };
 
