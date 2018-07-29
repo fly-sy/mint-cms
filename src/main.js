@@ -35,6 +35,13 @@ Vue.http.options.root = 'http://localhost:5000/';
 Vue.http.options.emulateJSON = true;
 
 
+// 导入格式化时间的插件
+import moment from 'moment'
+// 定义全局的过滤器
+Vue.filter('dateFormat', function (dataStr, pattern = "YYYY-MM-DD HH:mm:ss") {
+  return moment(dataStr).format(pattern)
+})
+
 Vue.config.productionTip = false
 
 new Vue({

@@ -6,6 +6,7 @@ import Home from '@/components/tabbar/Home'
 import Member from '@/components/tabbar/Member'
 import Cart from '@/components/tabbar/Cart'
 import Search from '@/components/tabbar/Search'
+import NewsList from '@/components/news/NewsList'
 
 // 2. 注册路由
 Vue.use(Router)
@@ -14,17 +15,29 @@ Vue.use(Router)
 export default new Router({
   routes: [
     {
-      path: '/home', component: Home
+      path: '/',
+      redirect: '/home'
     },
     {
-      path: '/member', component: Member
+      path: '/home',
+      component: Home
     },
     {
-      path: '/cart', component: Cart
+      path: '/member',
+      component: Member
     },
     {
-      path: '/search', component: Search
+      path: '/cart',
+      component: Cart
     },
+    {
+      path: '/search',
+      component: Search
+    },
+    {
+      path: '/home/newslist',
+      component: NewsList
+    }
   ],
   // 设置路由高亮的样式  
   linkActiveClass: 'mui-active'
