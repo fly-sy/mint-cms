@@ -31,6 +31,13 @@ export default {
 body {
   background: #fff;
 }
+* {
+  margin: 0;
+  padding: 0;
+}
+ul,li {
+  list-style: none;
+}
 #app {
   padding-top: 40px;
   overflow-x: hidden;
