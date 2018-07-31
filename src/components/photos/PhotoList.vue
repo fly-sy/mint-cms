@@ -12,9 +12,13 @@
 
     <!-- 图片列表区域 -->
     <ul class="photo-list">
-      <li v-for="item in list" :key="item.id">
+      <router-link v-for="item in list" :key="item.id" :to="'/home/photoinfo/' + item.id" tag="li">
         <img v-lazy="item.img_url">
-      </li>
+        <div class="img-desc">
+          <h1 class="desc-title">{{item.title}}</h1>
+          <div class="desc-body">{{item.zhaiyao}}</div>
+        </div>
+      </router-link>
     </ul>
   </div>
 </template>
@@ -39,7 +43,7 @@ export default {
   },
   mounted() {
     setTimeout(() => {
-      console.log(this.$refs.wrapper);
+      // console.log(this.$refs.wrapper);
       this.scroll = new BScroll(this.$refs.wrapper, this.options);
     }, 20);
   },
@@ -75,10 +79,27 @@ export default {
 };
 </script>
 
-<style lang="" scoped>
-img[lazy="loading"] {
-  width: 40px;
-  height: 300px;
-  margin: auto;
+<style lang="less" scoped>
+.photolist {
+  list-style: none;
+  margin: 0;
+  padding: 10px;
+  padding-bottom: 0;
+  li {
+    background-color: #ccc;
+    text-align: center;
+    margin-bottom: 10px;
+    box-shadow: 0 0 9px #999;
+    position: relative;
+    img {
+      width: 100%;
+      vertical-align: middle;
+    }
+    img[lazy="loading"] {
+      width: 40px;
+      height: 300px;
+      margin: auto;
+    }
+  }
 }
 </style>

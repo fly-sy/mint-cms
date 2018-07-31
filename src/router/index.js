@@ -12,6 +12,7 @@ import Search from '@/components/tabbar/Search'
 import NewsList from '@/components/news/NewsList'
 import NewsInfo from '@/components/news/NewsInfo'
 import PhotoList from '@/components/photos/PhotoList'
+import PhotoInfo from '@/components/photos/PhotoInfo'
 
 
 // 4. 实例化路由并配置路由规则  
@@ -48,6 +49,10 @@ export default new Router({
     {
       path: '/home/photolist',
       component: PhotoList
+    },
+    {
+      path: '/home/photoinfo/:id',
+      component: PhotoInfo
     }
   ],
   // 设置路由高亮的样式  
