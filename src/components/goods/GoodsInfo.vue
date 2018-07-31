@@ -4,7 +4,7 @@
     <div class="mui-card">
       <div class="mui-card-content">
         <div class="mui-card-content-inner">
-          <swiper :lunbotulist="lunbotu" :auto="0"></swiper>
+          <swipe :lunbotulist="lunbotu" :auto="0"></swipe>
         </div>
       </div>
     </div>
@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import Swiper from "../../components/subcomponents/Swiper";
+import Swipe from "../../components/subcomponents/Swipe";
 export default {
   data: () => ({
     id: "",
@@ -37,7 +37,7 @@ export default {
     }
   },
   components: {
-    Swiper
+    Swipe
   }
 };
 </script>

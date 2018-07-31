@@ -5,7 +5,7 @@
         <img :src="item.img" alt="">
       </mt-swipe-item>
     </mt-swipe> -->
-    <swiper :lunbotulist="lunbotulist" :auto="3000"></swiper>
+    <swipe :lunbotulist="lunbotulist" :auto="3000"></swipe>
     <!-- 九宫格 到 6宫格 的改造工程 -->
     <!-- <ul class="mui-table-view mui-grid-view mui-grid-9">
       <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
@@ -59,7 +59,7 @@
 
 import { Toast } from "mint-ui";
 import MuiGird from "../../muicomponents/MuiGird";
-import Swiper from "../../components/subcomponents/Swiper";
+import Swipe from "../../components/subcomponents/Swipe";
 export default {
   data: () => ({
     lunbotulist: []
@@ -83,7 +83,7 @@ export default {
   },
   components: {
     MuiGird,
-    Swiper
+    Swipe
   }
 };
 </script>
