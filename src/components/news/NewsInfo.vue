@@ -14,7 +14,7 @@
     </div>
 
     <!-- 通过v-bind 把id传给子组件 -->
-    <comment-box :id="id"></comment-box>
+    <comment :id="id"></comment>
   </div>
 </template>
 
@@ -45,7 +45,7 @@ export default {
     }
   },
   components: {
-    "comment-box": Comment
+    Comment
   }
 };
 </script>

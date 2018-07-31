@@ -68,7 +68,7 @@ export default {
       {
         url: "../../static/gird/menu3.png",
         title: "商品购买",
-        to: "/home/newlist"
+        to: "/home/goodslist"
       },
       {
         url: "../../static/gird/menu4.png",

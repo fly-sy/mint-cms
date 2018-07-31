@@ -1,11 +1,11 @@
 <template>
   <div class="home">
-    <mt-swipe :auto="4000">
+    <!-- <mt-swipe :auto="4000">
       <mt-swipe-item v-for="item in lunbotulist" :key="item.img">
         <img :src="item.img" alt="">
       </mt-swipe-item>
-    </mt-swipe>
-
+    </mt-swipe> -->
+    <swiper :lunbotulist="lunbotulist" :auto="3000"></swiper>
     <!-- 九宫格 到 6宫格 的改造工程 -->
     <!-- <ul class="mui-table-view mui-grid-view mui-grid-9">
       <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
@@ -58,7 +58,8 @@
 // 3. 通过v-for 渲染数据
 
 import { Toast } from "mint-ui";
-import MuiGird from '../../muicomponents/MuiGird'
+import MuiGird from "../../muicomponents/MuiGird";
+import Swiper from "../../components/subcomponents/Swiper";
 export default {
   data: () => ({
     lunbotulist: []
@@ -81,7 +82,8 @@ export default {
     }
   },
   components: {
-    'mui-gird': MuiGird
+    MuiGird,
+    Swiper
   }
 };
 </script>
@@ -90,24 +92,6 @@ export default {
 <style lang="less" scoped>
 // less 需要装 less less-loader 包
 // yarn add less less-loader -D
-.mint-swipe {
-  height: 200px;
-  .mint-swipe-item {
-    &:nth-child(1) {
-      background: red;
-    }
-    &:nth-child(2) {
-      background: hotpink;
-    }
-    &:nth-child(3) {
-      background: black;
-    }
-    img {
-      width: 100%;
-      height: 100%;
-    }
-  }
-}
 
 .mui-grid-view.mui-grid-9 {
   background-color: #fff;
