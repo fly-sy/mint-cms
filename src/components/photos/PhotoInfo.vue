@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import Comment from '../subcomponents/Comment'
+import Comment from "../subcomponents/Comment";
 export default {
   data: () => ({
     id: "",
@@ -54,10 +54,10 @@ export default {
         if (result.body.status === 0) {
           // 循环每个图片数据，补全图片的宽和高
           result.body.message.forEach((item, index) => {
-            (item.alt = "item" + index),
-              (item.w = 400),
-              (item.h = 500),
-              (item.msrc = item.src);
+            item.alt = "item" + index;
+            item.w = 400;
+            item.h = 500;
+            item.msrc = item.src;
           });
           // 把完整的数据保存到 list 中
           this.list = result.body.message;
@@ -66,12 +66,12 @@ export default {
         }
       });
     },
-    handleClose(){
-      console.log('close callback')
+    handleClose() {
+      console.log("close callback");
     }
   },
   components: {
-    'comment': Comment
+    comment: Comment
   }
 };
 </script>
