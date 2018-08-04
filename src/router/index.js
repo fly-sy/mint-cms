@@ -15,6 +15,8 @@ import PhotoList from '@/components/photos/PhotoList'
 import PhotoInfo from '@/components/photos/PhotoInfo'
 import GoodsList from '@/components/goods/GoodsList'
 import GoodsInfo from '@/components/goods/GoodsInfo'
+import GoodsDesc from '@/components/goods/GoodsDesc'
+import GoodsComment from '@/components/goods/GoodsComment'
 
 
 // 4. 实例化路由并配置路由规则  
@@ -64,6 +66,16 @@ export default new Router({
       name: 'goodsinfo',
       path: '/home/goodsinfo/:id',
       component: GoodsInfo
+    },
+    {
+      name: 'goodsdesc',
+      path: '/home/goodsdesc/:id',
+      component: GoodsDesc
+    },
+    {
+      name: 'goodscomment',
+      path: '/home/goodscomment/:id',
+      component: GoodsComment
     }
   ],
   // 设置路由高亮的样式  
