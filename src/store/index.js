@@ -3,7 +3,8 @@ import Vuex, { Store } from 'vuex'
 
 Vue.use(Vuex);
 
-let car = JSON.parse(localStorage.getItem('car')) || '[]'
+var car = JSON.parse(localStorage.getItem('car') || '[]')
+
 export default new Store({
   state: {
     car: car
@@ -36,12 +37,12 @@ export default new Store({
     },
   },
   getters: {
-    getCountAll(state) {
-      let count = 0
+    getAllCount(state) {
+      var c = 0;
       state.car.forEach(item => {
-        count += item.count
+        c += item.count
       })
-      return count
-    }
+      return c
+    },
   }
 })
