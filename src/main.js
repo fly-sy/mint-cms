@@ -3,6 +3,10 @@ import App from './App'
 // 5.0 引入路由模块
 import router from './router'
 
+// 引入store    
+
+import store from './store'
+
 // 全局引入的mint-ui   
 import MintUI from 'mint-ui'
 // 注册mint-ui
@@ -53,6 +57,7 @@ new Vue({
   el: '#app',
   // 6.0 注册路由
   router,
+  store,
   // 这连句话类似于  render: c => c(App)
   // components: { App },
   // template: '<App/>'

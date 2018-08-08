@@ -1,25 +1,37 @@
 <template>
   <div id="app">
     <!-- header -->
-    <mt-header fixed title="长沙黑马-10期"/>
+    <mt-header fixed title="长沙黑马-10期">
+      <span slot="left" @click="goBack">
+        <mt-button icon="back">返回</mt-button>
+      </span>
+    </mt-header>
+
     <!-- main -->
-    <!-- <router-view></router-view> -->
     <transition>
-      <!-- <router-view/> -->
-      <router-view></router-view>
+      <router-view/>
     </transition>
+
     <!-- tabbar -->
     <mui-tabbar/>
-    
   </div>
 </template>
 
 <script>
-// 引入定义好的组件  
-import MuiTabbar from './muicomponents/MuiTabbar'
+// 引入定义好的组件
+import MuiTabbar from "./muicomponents/MuiTabbar";
 
 export default {
   name: "App",
+  data: () => ({
+    flag: true
+  }),
+  methods: {
+    goBack() {
+      // 点击后退
+      this.$router.go(-1);
+    }
+  },
   // 2. 注册组件
   components: {
     "mui-tabbar": MuiTabbar
@@ -35,7 +47,8 @@ body {
   margin: 0;
   padding: 0;
 }
-ul,li {
+ul,
+li {
   list-style: none;
 }
 #app {
@@ -44,19 +57,19 @@ ul,li {
   overflow-x: hidden;
 }
 
-.v-enter{
+.v-enter {
   opacity: 0;
-  transform: translateX( 100%)
+  transform: translateX(100%);
 }
 
 .v-leave-to {
   opacity: 0;
   position: absolute;
-  transform: translateX( -100%)
+  transform: translateX(-100%);
 }
 
 .v-enter-active,
 .v-leave-active {
-  transition: all .4s ease;
+  transition: all 0.4s ease;
 }
 </style>

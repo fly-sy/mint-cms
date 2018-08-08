@@ -1,17 +1,15 @@
 <template>
   <div class="goods-desc">
-    this is goodsdesc page  
+    this is goodsdesc page
+
   </div>
 </template>
 
 <script>
 export default {
-  data: ()=>({
-    
-  })
-}
+  data: () => ({})
+};
 </script>
 
 <style lang="" scoped>
-  
 </style>
