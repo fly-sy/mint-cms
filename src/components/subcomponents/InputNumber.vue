@@ -43,9 +43,8 @@ export default {
       //定义自定义函数进行通信
       // this.$emit("on-change", val);
 
-      // 调用传递过来的 getSelectCount 函数   
+      // 调用传递过来的 getSelectCount 函数
       this.$emit("getSelectCount", val);
-
     },
     //监听父组件value是否改变
     value: function(val) {
@@ -65,7 +64,7 @@ export default {
         val = this.min;
       }
       this.currentValue = val;
-      // 传递数据给父组件  
+      // 传递数据给父组件
     },
     handleDown: function() {
       this.currentValue -= this.step;
